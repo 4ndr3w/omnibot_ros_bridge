@@ -14,4 +14,5 @@ target_link_libraries(odom_publisher ${catkin_LIBRARIES})
 add_executable(frc_comm src/frc_comm.cpp)
 target_link_libraries(frc_comm ${catkin_LIBRARIES} z)
 
-
+add_executable(robot_sender src/robot_sender.cpp)
+target_link_libraries(robot_sender ${catkin_LIBRARIES})

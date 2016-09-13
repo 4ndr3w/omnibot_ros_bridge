@@ -14,6 +14,20 @@ struct RobotPose {
   double vth;
 };
 
+#define MODE_BRICK 0
+#define MODE_VELOCITY 1
+#define MODE_POSITION 2
+
+
+struct RobotMoveCommand {
+	uint8_t mode;
+
+	double y;
+	double x;
+	double theta;
+};
+
+
 
 struct DrivePacket_Joystick {
   int8_t axis[6];
