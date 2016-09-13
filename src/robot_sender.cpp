@@ -58,13 +58,15 @@ int main(int argc, char** argv){
 
   memset(&addr, 0, sizeof(sockaddr_in));
 
-  n.subscribe("cmd_velocity", 100, commandVelocity);
-  n.subscribe("cmd_position", 100, commandPosition);
+  ros::Subscriber velSub = n.subscribe("cmd_velocity", 100, commandVelocity);
+  ros::Subscriber posSub = n.subscribe("cmd_position", 100, commandPosition);
 
   // Setup the robot's addr struct
   addr.sin_addr.s_addr = inet_addr("10.49.77.2");
   addr.sin_family = AF_INET;
   addr.sin_port = htons(1338);
+
+  ROS_INFO("robot_sender node started");
 
   ros::spin();
 
